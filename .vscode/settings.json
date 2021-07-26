@@ -1,22 +1,42 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ruby]": {
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.formatOnSave": true,
+  "yaml.format.enable": true,
+  "ruby.rubocop.useBundler": true,
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#da1128",
-    "activityBar.activeBorder": "#26cf10",
-    "activityBar.background": "#da1128",
+    "activityBar.activeBackground": "#af42d5",
+    "activityBar.activeBorder": "#d1a72e",
+    "activityBar.background": "#af42d5",
     "activityBar.foreground": "#e7e7e7",
     "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#26cf10",
+    "activityBarBadge.background": "#d1a72e",
     "activityBarBadge.foreground": "#15202b",
-    "editorGroup.border": "#da1128",
-    "panel.border": "#da1128",
-    "sideBar.border": "#da1128",
-    "statusBar.background": "#ab0d1f",
+    "editorGroup.border": "#af42d5",
+    "panel.border": "#af42d5",
+    "sideBar.border": "#af42d5",
+    "statusBar.background": "#9529bb",
     "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#da1128",
-    "titleBar.activeBackground": "#ab0d1f",
+    "statusBarItem.hoverBackground": "#af42d5",
+    "titleBar.activeBackground": "#9529bb",
     "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#ab0d1f99",
+    "titleBar.inactiveBackground": "#9529bb99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#ab0d1f"
+  "peacock.color": "#9529bb"
 }

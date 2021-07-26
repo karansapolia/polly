@@ -1,4 +1,18 @@
 {
+  "lint-staged": {
+    "app/**/*.{html,md,js,jsx,json}": [
+      "prettier-eslint --write"
+    ],
+    "{package.json,.eslintrc.js,.prettierrc.js}": [
+      "prettier-eslint --write"
+    ],
+    "./**/*.rb": [
+      "bundle exec rubocop -a"
+    ],
+    "{Gemfile,Rakefile,config.ru}": [
+      "bundle exec rubocop -a"
+    ]
+  },
   "name": "polly",
   "private": true,
   "dependencies": {
@@ -11,6 +25,19 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "prettier-eslint-cli": "^5.0.1",
     "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "prepare": "husky install"
   }
 }
