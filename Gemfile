@@ -35,6 +35,9 @@ group :development, :test do
   # for code formatting and linting
   gem "rubocop"
   gem "rubocop-rails"
+
+  # ruby lang server
+  gem "solargraph"
 end
 
 group :development do
