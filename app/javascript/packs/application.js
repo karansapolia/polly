@@ -9,5 +9,6 @@ import "channels";
 
 import "../stylesheets/application.scss";
 
+var componentRequireContext = require.context("src", true);
 Rails.start();
 ActiveStorage.start();
