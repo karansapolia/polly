@@ -2,18 +2,16 @@ import Logger from "js-logger";
 import * as R from "ramda";
 import React, { useEffect, useState } from "react";
 
-import pollsApi from "../apis/polls";
-import PageLoader from "./PageLoader";
+import pollsApi from "apis/polls";
+import PageLoader from "components/PageLoader";
+import Container from "components/Container";
+import ListPolls from "components/Polls/ListPolls";
 
-const ListPolls = () => {
+const DashBoard = () => {
   const [polls, setPolls] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadPolls();
-  }, []);
-
-  const loadPolls = async () => {
+  const fetchPolls = async () => {
     try {
       const response = await pollsApi.list();
       setPolls(response.data.polls);
@@ -22,6 +20,10 @@ const ListPolls = () => {
       Logger.error(err);
     }
   };
+
+  useEffect(() => {
+    fetchPolls();
+  }, []);
 
   if (loading) {
     return (
@@ -33,21 +35,19 @@ const ListPolls = () => {
 
   if (!R.either(R.isNil, R.isEmpty)(polls)) {
     return (
-      <div className="flex-column items-center justify-center w-screen h-screen pt-5">
-        {polls.map((poll, id) => (
-          <div key={id} className="text-lg leading-5 text-center">
-            <h3>{poll.title}</h3>
-          </div>
-        ))}
-      </div>
+      <Container>
+        <ListPolls polls={polls} />
+      </Container>
     );
   }
 
   return (
-    <h1 className="text-sl leading-5 text-center">
-      There are no polls currently! 🗳
-    </h1>
+    <Container>
+      <h1 className="text-sl leading-5 text-center">
+        There are no polls currently! 🗳
+      </h1>
+    </Container>
   );
 };
 
-export default ListPolls;
+export default DashBoard;
