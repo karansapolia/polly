@@ -39,26 +39,26 @@ const PollForm = ({
       <Input
         label="Option 1"
         placeholder="Option 1 value"
-        value={localOptions["option 1"] || ""}
-        onChange={e => handleOptions("option 1", e.target.value)}
+        value={localOptions["1"] || ""}
+        onChange={e => handleOptions("1", e.target.value)}
       />
       <Input
         label="Option 2"
         placeholder="Option 2 value"
-        value={localOptions["option 2"] || ""}
-        onChange={e => handleOptions("option 2", e.target.value)}
+        value={localOptions["2"] || ""}
+        onChange={e => handleOptions("2", e.target.value)}
       />
       <Input
         label="Option 3"
         placeholder="Option 3 value"
-        value={localOptions["option 3"] || ""}
-        onChange={e => handleOptions("option 3", e.target.value)}
+        value={localOptions["3"] || ""}
+        onChange={e => handleOptions("3", e.target.value)}
       />
       <Input
         label="Option 4"
         placeholder="Option 4 value"
-        value={localOptions["option 4"] || ""}
-        onChange={e => handleOptions("option 4", e.target.value)}
+        value={localOptions["4"] || ""}
+        onChange={e => handleOptions("4", e.target.value)}
       />
       <Button
         type="submit"

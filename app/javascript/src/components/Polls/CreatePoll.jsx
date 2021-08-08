@@ -16,7 +16,11 @@ const CreatePoll = ({ history }) => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      await pollsApi.create({ poll: { title, options } });
+      await pollsApi.create({
+        poll: { title, options: JSON.stringify(options) }
+      });
+      setLoading(false);
+      history.push("/");
     } catch (error) {
       logger.error(error);
       setLoading(false);
