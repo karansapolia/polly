@@ -31,5 +31,5 @@
 
 en:
   hello: "Hello world"
-  successfully_created: "Poll successfully created"
+  successfully_created: "%{entity} was successfully created"
   successfully_voted: "Your vote was cast successfully!"
