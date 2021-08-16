@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import Container from "components/Container";
 import PollForm from "components/Polls/Form/PollForm";
-import pollsApi from "apis/polls";
+import pollsApi from "apis/pollsApi";
 
 const CreatePoll = ({ history }) => {
   const [title, setTitle] = useState("");
-  const [options, setOptions] = useState({});
+  const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ const CreatePoll = ({ history }) => {
   }, [options]);
 
   const handleSubmit = async event => {
-    event.preventDefault();
     try {
       await pollsApi.create({
         poll: { title, options: JSON.stringify(options) }

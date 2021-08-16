@@ -7,9 +7,15 @@ const create = payload => {
   axios.post("/polls/", payload);
 };
 
+const show = id => axios.get(`/polls/${id}`);
+
+const vote = (id, payload) => axios.put(`/polls/${id}`, payload);
+
 const pollsApi = {
   list,
-  create
+  show,
+  create,
+  vote
 };
 
 export default pollsApi;

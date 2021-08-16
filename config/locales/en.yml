@@ -32,3 +32,4 @@
 en:
   hello: "Hello world"
   successfully_created: "Poll successfully created"
+  successfully_voted: "Your vote was cast successfully!"
