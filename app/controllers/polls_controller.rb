@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PollsController < ApplicationController
+  before_action :authenticate_user_using_x_auth_token, except: [:index]
+
   def index
     polls = Poll.all
     render status: :ok, json: { polls: polls }
