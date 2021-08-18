@@ -43,7 +43,7 @@ const ListPolls = () => {
       {polls.map((poll, index) => (
         <div
           key={index}
-          className="text-lg leading-5 text-center cursor-pointer"
+          className="text-lg leading-8 cursor-pointer w-3/4 mx-auto text-indigo-500"
           onClick={() => handleShowPoll(poll.id)}
         >
           <h3>{poll.title}</h3>
