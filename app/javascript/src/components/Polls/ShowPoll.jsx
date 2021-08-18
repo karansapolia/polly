@@ -17,6 +17,10 @@ const ShowPoll = () => {
   }, []);
 
   useEffect(() => {
+    logger.info("total votes: ", totalVotes);
+  }, [totalVotes]);
+
+  useEffect(() => {
     logger.info("pollData: ", pollData);
     if (pollData && pollData?.results) {
       setTotalVotes(countTotalVotes(pollData.results));
@@ -34,6 +38,7 @@ const ShowPoll = () => {
 
   const handleVote = async (e, option) => {
     e.preventDefault();
+    logger.info("selected option: ", option);
     let pollDataCopy = pollData;
     let { options, results } = pollDataCopy;
 
