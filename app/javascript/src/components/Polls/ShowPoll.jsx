@@ -84,7 +84,7 @@ const ShowPoll = () => {
                       submitted ? null : handleVote(e, option);
                     }}
                   >
-                    <p>{option}</p>
+                    <p className="px-2">{option}</p>
                     {submitted ? (
                       <p className="px-5 text-blue-300">{`${(
                         (pollData.results[pollData.options.indexOf(option)] /
