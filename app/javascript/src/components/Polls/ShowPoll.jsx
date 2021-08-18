@@ -19,7 +19,7 @@ const ShowPoll = () => {
   useEffect(() => {
     logger.info("pollData: ", pollData);
     if (pollData && pollData?.results) {
-      setTotalVotes(countTotalVotes(JSON.parse(pollData.results)));
+      setTotalVotes(countTotalVotes(pollData.results));
     }
   }, [pollData]);
 
@@ -36,8 +36,6 @@ const ShowPoll = () => {
     e.preventDefault();
     let pollDataCopy = pollData;
     let { options, results } = pollDataCopy;
-    options = JSON.parse(options);
-    results = JSON.parse(results);
 
     if (results) {
       results[options.indexOf(option)] = results[options.indexOf(option)]
@@ -48,7 +46,7 @@ const ShowPoll = () => {
       results[options.indexOf(option)] = 1;
     }
 
-    pollDataCopy.results = JSON.stringify(results);
+    pollDataCopy.results = results;
     pollDataCopy = { poll: { ...pollDataCopy } };
     logger.info("Modified poll data: ", pollDataCopy);
 
@@ -73,7 +71,7 @@ const ShowPoll = () => {
                 {pollData?.title}
               </h2>
               {pollData?.options &&
-                JSON.parse(pollData.options).map((option, index) => (
+                pollData.options.map((option, index) => (
                   <div
                     className="w-3/4 py-2 cursor-pointer flex"
                     key={index}
@@ -84,9 +82,7 @@ const ShowPoll = () => {
                     <p>{option}</p>
                     {submitted ? (
                       <p className="px-5 text-blue-300">{`${(
-                        (JSON.parse(pollData.results)[
-                          JSON.parse(pollData.options).indexOf(option)
-                        ] /
+                        (pollData.results[pollData.options.indexOf(option)] /
                           totalVotes) *
                         100
                       ).toFixed(2)} %`}</p>
