@@ -66,3 +66,6 @@ gem "react-rails"
 
 # add postgreSQL for production
 gem "pg", group: [:production]
+
+# app performance monitoring
+gem "appsignal"
