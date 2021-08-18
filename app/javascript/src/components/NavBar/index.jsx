@@ -7,7 +7,9 @@ import { resetAuthTokens } from "apis/axios";
 
 const NavBar = () => {
   const userName = getFromLocalStorage("username");
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    window.location.href = "/login";
+  };
 
   const handleLogOut = async () => {
     try {
