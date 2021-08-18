@@ -78,7 +78,7 @@ const ShowPoll = () => {
               {pollData?.options &&
                 pollData.options.map((option, index) => (
                   <div
-                    className="w-3/4 py-2 cursor-pointer flex"
+                    className="w-3/4 py-2 hover:bg-gray-300 cursor-pointer flex"
                     key={index}
                     onClick={e => {
                       submitted ? null : handleVote(e, option);
