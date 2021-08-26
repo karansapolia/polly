@@ -2,6 +2,7 @@
 
 class PollsController < ApplicationController
   before_action :authenticate_user_using_x_auth_token, except: [:index]
+  before_action :find_poll_by_id, except: [:index, :create]
 
   def index
     polls = Poll.all
@@ -19,16 +20,14 @@ class PollsController < ApplicationController
   end
 
   def show
-    poll = Poll.find(params[:id])
-    render status: :ok, json: { poll: poll }
+    render status: :ok, json: { poll: @poll }
   rescue ActiveRecord::RecordNotFound => errors
     render json: { errors: errors }, status: :not_found
   end
 
   def update
-    poll = Poll.find(params[:id])
-    if poll.update(poll_params)
-      render status: :ok, json: { notice: t("successfully_voted"), poll: poll }
+    if @poll.update(poll_params)
+      render status: :ok, json: { notice: t("successfully_voted"), poll: @poll }
     else
       render status: :unprocessable_entity, json: { errors: poll.errors.full_messages.to_sentence }
     end
@@ -38,5 +37,9 @@ class PollsController < ApplicationController
 
     def poll_params
       params.require(:poll).permit(:title, results: [], options: [])
+    end
+
+    def find_poll_by_id
+      @poll = Poll.find(params[:id])
     end
 end
